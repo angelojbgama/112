@@ -65,12 +65,13 @@ function getStampSize() {
     return { width: 0, height: 0 };
   }
 
-  const targetWidth = clamp(canvas.width * 0.24, 120, 360);
+  const targetWidth = clamp(canvas.width * 0.48, 240, 720);
+  const safeWidth = Math.min(targetWidth, Math.max(1, canvas.width - 20));
   const ratio = state.stampImage.height / state.stampImage.width;
 
   return {
-    width: targetWidth,
-    height: targetWidth * ratio
+    width: safeWidth,
+    height: safeWidth * ratio
   };
 }
 
